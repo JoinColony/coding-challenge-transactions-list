@@ -11,7 +11,6 @@ export const GetAllTransactions = gql`
       data
       chainId
       hash
-      receipt
     }
   }
 `;
