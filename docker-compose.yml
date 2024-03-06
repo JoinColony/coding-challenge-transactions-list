@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   mongo:
-    container_name: 'mongo'
+    container_name: "mongo"
     image: mongo:latest
     ports:
       - "27017:27017"
@@ -10,21 +10,21 @@ services:
       - app-network
 
   ganache:
-    container_name: 'ganache'
+    container_name: "ganache"
     image: trufflesuite/ganache-cli:latest
     ports:
       - "8545:8545"
     command:
       - "-m"
       - "myth like bonus scare over problem client lizard pioneer submit female collect" # !DON'T USE THIS IN PRODUCTION
-      - "--accounts=20"                  # 20 available accounts
-      - "--networkId=123456"             # Sets a chain ID of 123456
-      - "--defaultBalanceEther=1000"     # Optional: Ensure each account has enough Ether (default is 100).
+      - "--accounts=20" # 20 available accounts
+      - "--networkId=123456" # Sets a chain ID of 123456
+      - "--defaultBalanceEther=1000" # Optional: Ensure each account has enough Ether (default is 100).
     networks:
       - app-network
 
   server:
-    container_name: 'server'
+    container_name: "server"
     build:
       context: ./server
     ports:
@@ -35,10 +35,10 @@ services:
     networks:
       - app-network
     volumes:
-      - './server:/usr/src/app'
+      - "./server:/usr/src/app"
 
   client:
-    container_name: 'client'
+    container_name: "client"
     volumes:
       - "./client/src:/usr/src/app/src"
     build:

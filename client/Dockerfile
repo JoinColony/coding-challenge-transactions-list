@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 3000
 
-CMD [ "bash", "scripts/docker_run.sh" ]
+CMD [ "sh", "scripts/docker_run.sh" ]
